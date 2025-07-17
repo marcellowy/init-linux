@@ -1,14 +1,21 @@
 # alias
-echo -e "alias ls=\"ls --color\"" >> /etc/proofile
-echo -e "alias ll=\"ls -l\"" >> /etc/proofile
-echo -e "alias ipts=\"iptables -L -vn --line-numbers\"" >> /etc/proofile
-source /etc/profile
+PROFILE="$HOME/.profile"
+if [ `grep -c "alias ls=" $PROFILE` -eq '0' ];then
+    echo "alias ls=\"ls --color\"" >> $PROFILE
+fi
+if [ `grep -c "alias ll=" $PROFILE` -eq '0' ];then
+    echo "alias ll=\"ls -l\"" >> $PROFILE
+fi
+if [ `grep -c "alias ipts=" $PROFILE` -eq '0' ];then
+    echo "alias ipts=\"iptables -L -vn --line-numbers\"" >> $PROFILE
+fi
 
 # vim
-rm -rf ~/.vimrc
-touch ~/.vimrc
-echo -e "set mouse=\"\"" >> ~/.vimrc
-echo -e "set nu" >> ~/.vimrc
-echo -e "set expandtab" >> ~/.vimrc
-echo -e "set ts=4" >> ~/.vimrc
-echo -e "syntax on" >> ~/.vimrc
+VIMRC="$HOME/.vimrc"
+rm -rf $VIMRC
+touch $VIMRC
+echo "set mouse=\"\"" >> $VIMRC
+echo "set nu" >> $VIMRC
+echo "set expandtab" >> $VIMRC
+echo "set ts=4" >> $VIMRC
+echo "syntax on" >> $VIMRC
