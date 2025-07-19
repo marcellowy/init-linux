@@ -19,3 +19,10 @@ echo "set nu" >> $VIMRC
 echo "set expandtab" >> $VIMRC
 echo "set ts=4" >> $VIMRC
 echo "syntax on" >> $VIMRC
+
+# install software
+wget https://get.docker.com -O get-docker.sh && sh get-docker.sh
+apt update
+apt install vim iptables-persistent net-tools supervisor -y
+systemctl enable docker
+systemctl enable supervisor
