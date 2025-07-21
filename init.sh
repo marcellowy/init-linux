@@ -9,6 +9,9 @@ fi
 if [ `grep -c "alias ipts=" $PROFILE` -eq '0' ];then
     echo "alias ipts=\"iptables -L -vn --line-numbers\"" >> $PROFILE
 fi
+if [ `grep -c "alias tf=" $PROFILE` -eq '0' ];then
+    echo "alias tf=\"tail -f\"" >> $PROFILE
+fi
 
 # vim
 VIMRC="$HOME/.vimrc"
