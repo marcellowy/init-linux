@@ -20,6 +20,9 @@ echo "set expandtab" >> $VIMRC
 echo "set ts=4" >> $VIMRC
 echo "syntax on" >> $VIMRC
 
+# set timezone
+timedatectl set-timezone Asia/Shanghai
+
 # install software
 wget https://get.docker.com -O get-docker.sh && sh get-docker.sh
 apt update
