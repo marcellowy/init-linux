@@ -32,3 +32,6 @@ apt update
 apt install vim iptables-persistent net-tools supervisor -y
 systemctl enable docker
 systemctl enable supervisor
+
+# open bbr
+echo -e "\nnet.core.default_qdisc=fq\nnet.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sysctl -p
